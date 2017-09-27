@@ -1,0 +1,114 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+FILE *fp;
+void main()
+
+{
+
+         int
+zifu=0,danci=0,kongbai=0,duanluo=0;
+
+         char ch;
+         char fname[1000];
+         printf(")\n");
+         scanf("%s",fname);
+         if((fp=fopen(fname,"r"))==NULL)
+         {
+                   printf("\n");
+                   exit(0);
+          }
+         ch=fgetc(fp);
+         printf("\n：\n");
+         while(ch!=EOF)
+         {
+         if(ch=='')
+         kongbai++;
+         else
+if((ch>='!'&&ch<='~'))
+
+         zifu++;
+
+         else
+if(ch==10||ch==13)
+
+         duanluo++;
+         putchar(ch);
+         ch=fgetc(fp);
+         }
+
+         fclose(fp);
+         printf("\n\n:%d\n",kongbai);
+         printf("\n:%d\n",zifu);
+         printf("\n:%d\n",duanluo+1);
+         printf("\n:%d\n",danci);
+
+}
+
+
+#include "stdio.h"
+
+main()
+
+{
+
+         int
+i,j=0,num=1,word=0,max=0,js[200],gs[100];    
+char
+   a[10000]; 
+
+         printf("\n");
+
+         gets(a);
+         for(int
+         k=0;k<200;k++)
+
+         {js[k]=0;gs[k]=0;}
+         for(i=0;a[i]!='\0';i++)
+
+         {
+
+                   if(a[i]=='
+')
+
+                   {j++;word++;}
+
+                   else
+
+                            js[j]++;
+         }
+         word++;
+         for(i=0;i<j+1;i++)
+
+         {
+
+                   if(max<js[i])
+
+                   {max=js[i];}
+
+         }
+         do
+         {
+                   for(i=0;i<word;i++)
+
+                            {
+                                     if(js[i]==num)
+                                     gs[num]++;
+                            }
+
+                 num++;
+
+         }while(num<=max);
+         printf("\n");
+
+         for(i=1;i<=max;i++)
+                   {
+
+        printf("%4d%4d\n",i,gs[i]);
+                   }
+         printf("合计：%4d\n",word);
+
+}
+
+
+
